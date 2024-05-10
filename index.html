@@ -6,7 +6,68 @@
     </head>
     <body>
         <script>
+            humanScore = 0
+            computerScore = 0
             
+            function playGame() {
+            let userChoice = prompt("Rock, paper, scissors, GO!");
+            let computerChoice = Math.random();
+              if (computerChoice < 0.34) {
+                computerChoice = "rock";
+              } else if (computerChoice <= 0.67) {
+                computerChoice = "paper";
+              } else {
+                computerChoice = "scissors";
+              }
+              console.log(computerChoice);
+              
+            function displayResult() {
+            if (userChoice.toLowerCase() === computerChoice) {
+                console.log("It's a draw!");
+                console.log('You: ' + humanScore);
+                console.log('Computer: ' + computerScore);
+            } else if (
+                (userChoice.toLowerCase() === "rock" && computerChoice === "scissors") ||
+                (userChoice.toLowerCase() === "paper" && computerChoice === "rock") ||
+                (userChoice.toLowerCase() === "scissors" && computerChoice === "paper")
+            ) {
+                console.log("You win this round!");
+                console.log('You: ' + ++humanScore);
+                console.log('Computer: ' + computerScore);
+            } else if (
+                (userChoice.toLowerCase() === "rock" && computerChoice === "paper") ||
+                (userChoice.toLowerCase() === "paper" && computerChoice === "scissors") ||
+                (userChoice.toLowerCase() === "scissors" && computerChoice === "rock")
+            ) {
+                console.log("You lose this round!");
+                console.log('You: ' + +humanScore);
+                console.log('Computer: ' + ++computerScore);
+            } else {
+                console.log("Input not recognized! Try again!");
+            }
+        }
+
+        displayResult();
+    }
+    
+    playGame()
+    playGame()
+    playGame()
+    playGame()
+    playGame()
+
+    function declareWinner() {
+        if (humanScore > computerScore) {
+            console.log("Congratulations, you win!")
+        } else if (humanScore == computerScore) {
+            console.log("It's a tie! Try again!")
+        } else {
+            console.log("Uh-oh, the computer wins!")
+        }
+    }
+    declareWinner()
+    console.log("Refresh the page to try again")
+        
         </script>
     </body>
 </html>
